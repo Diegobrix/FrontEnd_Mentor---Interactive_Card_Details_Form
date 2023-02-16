@@ -29,10 +29,192 @@ body {
     height: 100vh;
     width: 100dvw;
     height: 100dvh;
+
+    overflow: hidden;
+}
+
+input[type="text"] {
+    font-size: .8rem;
+    padding: 8px;
+}
+
+input[type="button"],
+button {
+    text-transform: capitalize;
+}
+
+label,
+.cardholder-name-display {
+    text-transform: uppercase;
+}
+
+button,
+input[type="button"] {
+    cursor: pointer;
 }
 
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
 
 /* Mobile - 375px */
+main {
+    width: 100%;
+    height: 100%;
+}
+
+.background {
+    position: relative;
+    
+    width: auto;
+    height: 33%;
+}
+
+.card,
+.card .card-details {
+    position: absolute;
+}
+
+.front {
+    bottom: -3rem;
+    left: 1rem;
+    z-index: 2;
+}
+
+.front::after {
+    content: "";
+    position: absolute;
+    top: .5rem;
+    left: 1rem;
+    width: 2.5rem;
+    aspect-ratio: 1;
+    background: url(../images/card-logo.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.front .card-details {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    padding: 0 1rem;
+
+    bottom: 1.3rem;
+}
+
+.card-details {
+    color: var(--neutral-100);
+    width: 75%;
+}
+
+.card-number-display {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: .5rem;
+    width: 100%;
+}
+
+.cardholder-name-display,
+.card-exp-date {
+    font-size: .7rem;
+}
+
+.front img,
+.back img {
+    width: 75%;
+}
+
+.back {
+    bottom: 1.80rem;
+    left: 2rem;
+}
+
+.back .card-details {
+    bottom: 3.85rem;
+    left: 14.4rem;
+    font-size: .65rem;
+    z-index: 3;
+}
+
+.back img {
+    position: relative;
+    left: 3.5rem;
+}
+
+.data-wrapper[confirmed = "false"] .completed-state {
+    display: none;
+}
+
+.data-wrapper[confirmed = "true"] .form {
+    display: none;
+}
+
+.form-wrapper {
+    width: 100%;
+
+    padding: 0 1rem;
+    padding-top: 5.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.5rem 0;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+form,
+.input-group,
+label,
+input {
+    width: 100%;
+}
+
+.row-group {
+    --gap: 10px;
+    gap: 0 var(--gap    );
+}
+
+.row-group input {
+    width: calc(50% - var(--gap));
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0 15px;
+}
+
+input[value="confirm"] {
+    height: 2.5rem;
+    border-radius: 8px;
+    border: 0;
+    background: var(--neutral-400);
+    color: var(--neutral-100);
+}
+
+input[type="text"] {
+    height: 2.5rem;
+    border: 1px solid var(--neutral-200);
+    border-radius: 5px;
+}
+
+input[type="text"]::placeholder {
+    color: var(--neutral-200);
+    font-weight: inherit;
+}
+
+label {
+    font-size: .7rem;
+    color: var(--neutral-400);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
 /* Desktop - 1440px */
