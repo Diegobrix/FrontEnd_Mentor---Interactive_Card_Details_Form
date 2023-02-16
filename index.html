@@ -41,6 +41,49 @@
   <script src="./js/card_details.js"></script>
 </head>
 <body>
+  <main>
+    <section class="background">
+      <picture class="background-banner">
+        <source srcset="./images/bg-main-desktop.png" media="(min-width: 720px)">
+        <img src="./images/bg-main-mobile.png" alt="">
+      </picture>
+      <div class="card front">
+        <img src="./images/card-logo.svg" alt="">
+      </div>
+      <div class="card back">
+      </div>
+    </section>
+    <section class="form-wrapper">
+      <div class="form">
+        <form action="" id="card-details-form">
+          <div class="input-group">
+            <input type="text" name="" id="" placeholder="e.g. Jane Appleseed">
+          </div>
+          <div class="input-group">
+            <input type="text" name="" id="" placeholder="e.g. 1234 5678 9123 0000" pattern="[0-9]{19}">
+          </div>
+          <div class="input-group row-group">
+            <input type="text" name="" id="" placeholder="MM" pattern="[0-9]{2}">
+            <input type="text" name="" id="" placeholder="YY" pattern="[0-9]{2}">
+          </div>
+          <div class="input-group">
+            <input type="text" name="" id="" placeholder="e.g. 123" pattern="[0-9]{3}">
+          </div>
+          <div class="input-group">
+            <input type="button" value="confirm">
+          </div>
+        </form>
+      </div>
+      <div class="completed-state">
+        <figure>
+          <img src="./images/icon-complete.svg" alt="">
+        </figure>
+        <h2>thank you!</h2>
+        <p>We've added your card details</p>
+        <button form="card-details-form">continue</button>
+      </div>
+    </section>
+  </main>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
