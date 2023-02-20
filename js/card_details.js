@@ -11,6 +11,8 @@ const cardCvcField = document.querySelector("#txtCvc");
 const expMonthField = document.querySelector("#txtMonth");
 const expYearField = document.querySelector("#txtYear");
 
+const errorMsgDisplay = document.querySelectorAll(".errorMsg");
+
 const btnDataConfirm = document.querySelector("#btn-confirm");
 
 let personName = "jane appleseed";
@@ -26,6 +28,10 @@ cardNumberField.addEventListener("keyup", ShowValue);
 cardCvcField.addEventListener("keyup", ShowValue);
 expMonthField.addEventListener("keyup", ShowValue);
 expYearField.addEventListener("keyup", ShowValue);
+
+btnDataConfirm.addEventListener("click", CompleteForm);
+
+const fields = [nameField, cardNumberField, cardCvcField, expMonthField, expYearField];
 
 function Init() 
 {
@@ -74,20 +80,31 @@ function ShowValue()
             }
             break;
         case "txtCvc":
-            if(this.value.length < 1)
-            {
-                cvcDisplay.innerText = cvc;
-            }
 
             if(this.value.length <= 3)
             {
                 cvcDisplay.innerText = this.value;
             }
-            else
+
+            if(this.value.length < 1)
             {
-                //Lança um aviso que o limite de caracteres é 3
+                cvcDisplay.innerText = cvc;
             }
             break;
     }
 
+}
+
+function CompleteForm() 
+{
+    fields.forEach((field) => {
+        if(field.value.length < 1)
+        {
+            field.parentElement.setAttribute("error", "true");     
+        }
+        else 
+        {
+            field.parentElement.setAttribute("error", "false"); 
+        }
+    });
 }
